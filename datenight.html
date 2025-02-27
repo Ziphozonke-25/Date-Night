@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Date Night Planner</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <style>
+    body {
+      background-color: #f5f5f5;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #333;
+      margin-top: 50px;
+    }
+    h2 {
+      color: #666;
+    }
+    input, select, button {
+      margin: 10px;
+      padding: 5px;
+      width: 200px;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    #confirmation {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #333;
+    }
+    footer {
+      margin-top: 50px;
+      font-size: 14px;
+      color: #666;
+    }
+    .fa-heart {
+      color: red;
+    }
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 24px;
+      }
+      h2 {
+        font-size: 18px;
+      }
+      input, select, button {
+        width: 80%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Date Night Planner <i class="fas fa-heart"></i></h1>
+    <p>Hey Musa♥️, would you like to go on a date with me?</p>
+    <h2>Choose your dress color</h2>
+    <input type="radio" id="red" name="color" value="red">
+    <label for="red">Red</label><br>
+    <input type="radio" id="blue" name="color" value="blue">
+    <label for="blue">Blue</label><br>
+    <input type="radio" id="black" name="color" value="black">
+    <label for="black">Black</label><br>
+    <h2>Select a restaurant</h2>
+    <select id="restaurant">
+      <option value="">--Choose a restaurant--</option>
+      <option value="Marble">Marble</option>
+      <option value="The Grillhouse">The Grillhouse</option>
+      <option value="Ethos">Ethos</option>
+      <option value="Momo Kuro">Momo Kuro</option>
+    </select>
+    <br>
+    <button onclick="confirmChoices()">Confirm Choices</button>
+    <div id="confirmation"></div>
+  </div>
+  <footer>
+    <p>Made with <i class="fas fa-heart"></i> by Ziphozonke</p>
+  </footer>
+  <script>
+    function confirmChoices() {
+      var color = document.querySelector('input[name="color"]:checked');
+      var restaurant = document.getElementById('restaurant').value;
+      if (color && restaurant) {
+        var colorValue = color.value;
+        document.getElementById('confirmation').innerHTML = "Great! You'll look stunning in " + colorValue + " at " + restaurant + ". Can't wait!";
+      } else {
+        alert("Please select both a dress color and a restaurant.");
+      }
+    }
+  </script>
+</body>
+</html>
